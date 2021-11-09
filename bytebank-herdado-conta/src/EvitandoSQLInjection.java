@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 /**
  * Injeção de SQL é uma prática utilizada para inserir query SQL em formularios
- * por exemplo.
+ * por exemplo, podendo assim excluir ou atualizar um dado.
  */
 
 public class EvitandoSQLInjection {

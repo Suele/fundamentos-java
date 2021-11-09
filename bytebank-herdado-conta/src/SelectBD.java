@@ -1,7 +1,7 @@
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
  * @author suele
@@ -18,8 +18,8 @@ public class SelectBD {
 		System.out.println("Conectado no banco de dados.");
 
 		// executa SELECT na tabela cliente.
-		Statement stm = connection.createStatement();
-		stm.execute("SELECT ID, NOME, CPF, PROFISSAO FROM cliente");
+		PreparedStatement stm = connection.prepareStatement("SELECT ID, NOME, CPF, PROFISSAO FROM cliente");
+		stm.execute();
 
 		// pega o resultado gerado na execução SQL.
 		ResultSet rlt = stm.getResultSet();

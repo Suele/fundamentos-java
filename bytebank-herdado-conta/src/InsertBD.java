@@ -1,7 +1,7 @@
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class InsertBD {
 
@@ -10,11 +10,22 @@ public class InsertBD {
 		ConnectionFactory connectionFactory = new ConnectionFactory();
 		Connection connection = connectionFactory.criaConexao("root", "senha");
 
-		Statement smt = connection.createStatement();
-		smt.execute(" INSERT INTO cliente(nome, cpf, profissao) VALUES('Mariana', '33333333333', 'PO')",
-				Statement.RETURN_GENERATED_KEYS);
+		String nome = "Vando";
+		String cpf = "77777777777";
+		String profissao = "Motorista";
 
-		ResultSet rts = smt.getGeneratedKeys();
+		PreparedStatement preparedStatement = connection.prepareStatement(
+				" INSERT INTO cliente(nome, cpf, profissao) VALUES(?, ?, ?)", PreparedStatement.RETURN_GENERATED_KEYS);
+
+		preparedStatement.setString(1, nome);
+		preparedStatement.setString(2, cpf);
+		preparedStatement.setString(3, profissao);
+
+		// o execute retorna false pq é uma execução que não busca nada no bd.
+		preparedStatement.execute();
+
+		// retorna objeto contendo o id do novo cliente.
+		ResultSet rts = preparedStatement.getGeneratedKeys();
 
 		while (rts.next()) {
 			Integer id = rts.getInt(1);

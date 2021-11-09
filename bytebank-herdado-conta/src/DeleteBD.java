@@ -1,6 +1,6 @@
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class DeleteBD {
 
@@ -9,11 +9,13 @@ public class DeleteBD {
 		ConnectionFactory connectionFactory = new ConnectionFactory();
 		Connection connection = connectionFactory.criaConexao("root", "senha");
 
-		Statement smt = connection.createStatement();
+		PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM cliente WHERE ID = ?");
+		
+		preparedStatement.setInt(1, 12);
 
-		smt.execute("DELETE FROM cliente WHERE ID = 3");
+		preparedStatement.execute();
 
-		Integer linhasModificadas = smt.getUpdateCount();
+		Integer linhasModificadas = preparedStatement.getUpdateCount();
 
 		System.out.println("Linhas alteradas: " + linhasModificadas);
 
