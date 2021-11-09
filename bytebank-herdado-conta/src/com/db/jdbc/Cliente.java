@@ -1,3 +1,4 @@
+package com.db.jdbc;
 
 public class Cliente {
 
