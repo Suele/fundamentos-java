@@ -10,9 +10,9 @@ public class DeleteBD {
 		ConnectionFactory connectionFactory = new ConnectionFactory();
 		Connection connection = connectionFactory.criaConexao("root", "senha");
 
-		PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM cliente WHERE ID = ?");
+		PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM cliente WHERE ID > ?");
 		
-		preparedStatement.setInt(1, 12);
+		preparedStatement.setInt(1, 10);
 
 		preparedStatement.execute();
 
