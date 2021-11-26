@@ -14,8 +14,12 @@ public class TesteDao {
 		Connection connection = connectionFactory.criaConexao();
 
 		CustomerDao customerDao = new CustomerDao(connection);
-		customerDao.salvar(customer);
-		customerDao.buscar();
+		// customerDao.salvar(customer);
+		//customerDao.buscar();
+
+		ProductDao productDao = new ProductDao(connection);
+
+		System.out.println(productDao.listProduct());
 
 		connection.close();
 	}
