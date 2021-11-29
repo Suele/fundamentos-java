@@ -13,7 +13,6 @@ public class CustomerDao {
 
 	public CustomerDao(Connection connection) {
 		this.connection = connection;
-
 	}
 
 	public void salvar(Customer custome) throws SQLException {
@@ -35,7 +34,6 @@ public class CustomerDao {
 			Integer id = rts.getInt(1);
 			System.out.println("id: " + id);
 		}
-
 	}
 
 	public void buscar() throws SQLException {
