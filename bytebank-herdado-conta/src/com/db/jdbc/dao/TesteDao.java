@@ -15,11 +15,12 @@ public class TesteDao {
 
 		CustomerDao customerDao = new CustomerDao(connection);
 		// customerDao.salvar(customer);
-		//customerDao.buscar();
+		// customerDao.buscar();
 
 		ProductDao productDao = new ProductDao(connection);
 
 		System.out.println(productDao.listProduct());
+		System.out.println(productDao.productAndCategory());
 
 		connection.close();
 	}
