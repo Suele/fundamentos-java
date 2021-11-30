@@ -50,6 +50,7 @@ public class ProductDao {
 			Product product = new Product(rlt.getNString("category_name"), rlt.getNString("product_name"),
 					rlt.getNString("description"));
 			products.add(product);
+			System.out.println(products);
 		}
 		return products;
 	}
