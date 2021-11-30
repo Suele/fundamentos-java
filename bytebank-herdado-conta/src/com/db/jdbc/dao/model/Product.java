@@ -49,4 +49,9 @@ public class Product {
 
 	}
 
+	public void setCategoriaId(Long id2) {
+		// TODO Auto-generated method stub
+
+	}
+
 }
