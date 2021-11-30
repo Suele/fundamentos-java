@@ -49,7 +49,7 @@ Digite a mesma senha que vc utilizou ao iniciar o container.
 ### Para acessar o banco de dados.
 ``USE <nome_do_db>;``
 
-### Criar tabela.
+### Criar tabela de cliente.
 ``CREATE TABLE customer(
 id int AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(45) NOT NULL,
@@ -57,5 +57,22 @@ cpf VARCHAR(12) NOT NULL,
 occupation VARCHAR(25) NOT NULL
 )Engine = InnoDB;``
 
-### Inserir dados na tabela.
+### Cria tabela de categoria
+``CREATE TABLE category(
+id int AUTO_INCREMENT PRIMARY KEY,
+category_name VARCHAR(45) NOT NULL
+)Engine = InnoDB;``
+
+### Cria tabela de produto
+``CREATE TABLE product(
+id int AUTO_INCREMENT PRIMARY KEY,
+product_name VARCHAR(45) NOT NULL,
+description VARCHAR(55) NOT NULL
+)Engine = InnoDB;``
+
+### Insere dados nas tabelas cliente, categori e produto.
+``INSERT INTO product(product_name, description, category_id) VALUES('notbook', 'preto tela 14 polegadas', 2);``
+``INSERT INTO product(product_name, description, category_id) VALUES('geladeira', 'branca 336 litros', 1);``
+``INSERT INTO category(category_name) VALUES('eletrodomestico');``
+``INSERT INTO category(category_name) VALUES('informatica');``
 ``INSERT INTO customer(name, cpf, occupation) VALUES ('Suele', '11111111111', 'desenvolvedora');``
