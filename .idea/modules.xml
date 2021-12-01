@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/five-shop-jpa/five-shop.iml" filepath="$PROJECT_DIR$/five-shop-jpa/five-shop.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/fundamentos-java.iml" filepath="$PROJECT_DIR$/.idea/fundamentos-java.iml" />
     </modules>
   </component>
