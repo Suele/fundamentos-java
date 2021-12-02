@@ -23,6 +23,7 @@
 hs_err_pid*
 /.metadata/
 
+.jpb/
 .idea*
 five-shop-jpa/five-shop.iml
 five-shop-jpa/target/*
