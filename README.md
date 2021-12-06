@@ -1,20 +1,23 @@
 # Fundamentos Java
 O objetivo deste repositório é utilizar os recursos básicos que o java oferece sem a ajuda ou abstração de um framework.
 
-## JDBC(Java Database Connectivity)
-Para que uma aplicação java tenha acesso a um banco de dados neste caso MYSQL é preciso criar um canal de comunicação entre eles.
+## Como conectar em um banco de dados com java
+### O que é JDBC?
+É uma API que têm interfaces que facilitam a conexão com banco de dados, como a interface Connection, a execução de instruções sql com Statement ou PreparedStatement. Cada banco de dados possui o seu driver para fazer a communicação com o java.
 
-## Pool de Conexão
+### Pool de Conexão
 São varias conexões que são abertas e encerradas com o banco de dados. Como é muito custoso abrir e fechar conexões 
 manualmente, é boa prática utilizar pool de conexão.
 
-## DAO
+### DAO
 É um padrão utilizado para ter acesso aos dados do banco de dados.
 
 ## Banco de Dados Mysql
 Banco de dados relacional(baseado em tabelas e elas podem ter relacionamentos ou não). O mysql está sendo executado em um container docker.
 
 Comandos utilizados para executar o banco de dados mysql em um container docker.
+
+## Comandos Docker
 
 ### Para criar um volume docker
 docker volume create <nome_do_volume>
