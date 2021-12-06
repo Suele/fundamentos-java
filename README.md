@@ -1,5 +1,5 @@
-# Fundamentos Java
-O objetivo deste repositório é utilizar os recursos básicos que o java oferece sem a ajuda ou abstração de um framework.
+# Fundamentos básicos em Java
+O objetivo deste repositório é utilizar os recursos básicos que o java oferece sem a ajuda de um framework. Todas as linguagens de programação possuem framework ou libs para agilizarem o desenvolvimento e implementarem boas práticas e padrões de projetos já consolidados.
 
 ## Como conectar em um banco de dados com java
 ### O que é JDBC?
