@@ -21,19 +21,26 @@ public class InsertTest {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("five-shop-persistence");
 		EntityManager em = factory.createEntityManager();
 
-		// Abre transação com o banco de dados.
+		//Abre transação com o banco de dados.
 		em.getTransaction().begin();
-		// Persiste o dados ou seja altera um dado ou cria um novo.
+		
 		CategoryDao categoryDao = new CategoryDao(em);
 		ProductDao productDao = new ProductDao(em);
 
-		//categoryDao.insertCategory(newCategory);
-		//productDao.insertProduct(newProduct);
-		//System.out.println(productDao.selectProduct());
+		//Adiciona  uma nova categoria no banco de dados.
+		categoryDao.insertCategory(newCategory);
 
-		//System.out.println(productDao.findId(26L));
+		//Adiciona um produto na base de dados.
+		productDao.insertProduct(newProduct);
 
-		productDao.deleteProduct(productDao.findId(15L));
+		//Busca todos os produtos que estejam na base de dados.
+		System.out.println(productDao.selectProduct());
+
+		//Busca produto pelo id.
+		System.out.println(productDao.findId(26L));
+
+		// Deleta produto pelo id.
+		productDao.deleteProduct(productDao.findId(1L));
 
 		// Autoriza a alteração
 		em.getTransaction().commit();
