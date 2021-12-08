@@ -15,17 +15,18 @@ public class InsertTest {
 		CategoryModel newCategory = new CategoryModel();
 		newCategory.setName("smartphone");
 
-		// Instancia o objeto produto e adiciona os atributos.
-		ProductModel newProduct = new ProductModel("smartphone samsung", " cor dourado tela de 14", newCategory);
-
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("five-shop-persistence");
 		EntityManager em = factory.createEntityManager();
 
-		//Abre transação com o banco de dados.
-		em.getTransaction().begin();
 
 		CategoryDao categoryDao = new CategoryDao(em);
 		ProductDao productDao = new ProductDao(em);
+
+		// Instancia o objeto produto e adiciona os atributos.
+		ProductModel newProduct = new ProductModel("smartphone samsung", " cor dourado tela de 14", categoryDao.findId(3L));
+
+		//Abre transação com o banco de dados.
+		em.getTransaction().begin();
 
 		//Adiciona  uma nova categoria no banco de dados.
 		categoryDao.insertCategory(newCategory);
@@ -37,10 +38,10 @@ public class InsertTest {
 		System.out.println(productDao.selectProduct());
 
 		//Busca produto pelo id.
-		System.out.println(productDao.findId(26L));
+		//System.out.println(productDao.findId(26L));
 
 		// Deleta produto pelo id.
-		productDao.deleteProduct(productDao.findId(1L));
+		//productDao.deleteProduct(productDao.findId(1L));
 
 		// Autoriza a alteração
 		em.getTransaction().commit();

@@ -20,4 +20,8 @@ public class CategoryDao {
 		String jpql = "SELECT c.id, c.category_name  FROM category c";
 		return this.entityManager.createNativeQuery(jpql, CategoryModel.class).getResultList();
 	}
+
+	public CategoryModel findId(Long categoryId) {
+		return this.entityManager.find(CategoryModel.class, categoryId);
+	}
 }
