@@ -23,7 +23,7 @@ public class InsertTest {
 
 		//Abre transação com o banco de dados.
 		em.getTransaction().begin();
-		
+
 		CategoryDao categoryDao = new CategoryDao(em);
 		ProductDao productDao = new ProductDao(em);
 
@@ -44,6 +44,7 @@ public class InsertTest {
 
 		// Autoriza a alteração
 		em.getTransaction().commit();
+		em.getEntityManagerFactory().close();
 		// Encerra a transação.
 		em.close();
 	}
