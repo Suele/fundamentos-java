@@ -1,7 +1,7 @@
-# Fundamentos básicos em Java
-O objetivo deste repositório é utilizar os recursos básicos que o java oferece sem a ajuda de um framework. Todas as linguagens de programação possuem framework ou libs para agilizarem o desenvolvimento e implementarem boas práticas e padrões de projetos já consolidados.
+# Fundamentos Básicos de Java
+O objetivo deste repositório é utilizar os recursos básicos que o java oferece sem a ajuda de um framework. Todas as linguagens de programação possuem frameworks ou libs para agilizarem o desenvolvimento e implementam boas práticas e padrões de projetos já consolidados. Em um dos projetos foi utilizado JDBC puro e no outro JPA que por debaixo dos panos utiliza JDBC.Nos dois projetos foi utilizado a mesma base de dados e o mesmo banco.
 
-## Como conectar em um banco de dados com java
+## Projeto que utiliza JDBC
 ### O que é JDBC?
 É uma API que têm interfaces que facilitam a conexão com banco de dados, como a interface Connection, a execução de instruções sql com Statement ou PreparedStatement. Cada banco de dados possui o seu driver para fazer a communicação com o java.
 
@@ -9,33 +9,47 @@ O objetivo deste repositório é utilizar os recursos básicos que o java oferec
 São varias conexões que são abertas e encerradas com o banco de dados. Como é muito custoso abrir e fechar conexões 
 manualmente, é boa prática utilizar pool de conexão.
 
-### DAO
-É um padrão utilizado para ter acesso aos dados do banco de dados.
+### DAO(Data Access Object)
+Padrão de projeto utilizado para consultar ou persistir dados em um banco de dados.
 
-## Banco de Dados Mysql
-Banco de dados relacional(baseado em tabelas e elas podem ter relacionamentos ou não). O mysql está sendo executado em um container docker.
+## Projeto que utiliza JPA
+### O que é JPA(Java Persistence API)?
+É uma especificação, mas o que é uma especificação?, uma especificação diz como algo deve ser feito ou seja especifica.
 
-Comandos utilizados para executar o banco de dados mysql em um container docker.
+### O que é Hibernate?
+É uma implementação, mas o que é uma implementação?, uma implementação é baseada em uma especificação.
 
-## Comandos Docker
+### O que é Mavem?
+É gerenciador de dependencias do java. Todo projeto que utiliza Mavem tem o arquivo pom.xml onde ficam as dependencias que o projeto utiliza e as suas versões.
 
+### O que é o arquivo persistence.xml?
+O que pode ser notado logo de cara é que este arquivo utiliza o driver do JDBC e este arquivo separa a configuração de acesso para o banco de dados.
+
+## Banco de Dados foi executado em um container docker
+Foi utilizado o banco de dados relacional MYSQL.
 ### Para criar um volume docker
-docker volume create <nome_do_volume>
+``docker volume create <nome_do_volume>``
+
+### Para criar uma rede no docker para que os containers possam se comunicarem.
+``docker network create --driver <tipo_da_rede> bridge <nome_da_rede>``
+
+### Para adiciionar os containers na rede criada.
+``--network <nome_da_rede>``
 
 ### Executar o container com a imagem do mysql.
 ``docker run --name <nome_do_container> -v <nome_volume_que_vc_criou>:<nome_do_volune_do_container> -e MYSQL_ROOT_PASSWORD=<senha_db> -d -p 3306:3306 mysql``
 
 ### Variavel de ambiente
--e
+``-e``
 
 ### Bind de porta para comunicação do host com o container.
--p <porta_do_host>:<porta_do_container>
+``-p <porta_do_host>:<porta_do_container>``
 
 ### Para não travar o terminal
--d
+``-d``
 
-### Executar comandos no container.
-docker exec -it <nome_do_volume> bash
+### Para acessar o container.
+``docker exec -it <nome_do_volume> bash``
 
 ### Acessar banco de dados
 ``mysql -u root -p``
