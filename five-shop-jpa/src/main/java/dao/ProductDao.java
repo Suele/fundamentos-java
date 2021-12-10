@@ -35,8 +35,13 @@ public class ProductDao {
 		this.entityManager.flush();
 	}
 
-	public List<ProductModel> findProductName(String product_name) {
+	public List<ProductModel> findProductByName(String product_name) {
 		String queryJPQL = " SELECT p.id, p.product_name, p.description, p.category_id FROM product p WHERE p.product_name = :product_name";
 		return this.entityManager.createNativeQuery(queryJPQL, ProductModel.class).setParameter("product_name", product_name).getResultList();
+	}
+
+	public List<ProductModel> findProductByCategory(String category_name) {
+		String queryJPQL = " SELECT p.id, p.product_name, p.description, c.category_name, p.category_id FROM product p JOIN category c WHERE c.category_name = :category_name";
+		return this.entityManager.createNativeQuery(queryJPQL, ProductModel.class).setParameter("category_name", category_name).getResultList();
 	}
 }

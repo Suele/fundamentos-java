@@ -31,13 +31,16 @@ public class TestProduct {
 		//categoryDao.insertCategory(newCategory);
 
 		//Adiciona um produto na base de dados.
-		productDao.insertProduct(newProduct);
+		//productDao.insertProduct(newProduct);
 
 		//Busca todos os produtos que estejam na base de dados.
-		System.out.println(productDao.selectProduct());
+		//System.out.println(productDao.selectProduct());
 
-		//Busca um produto pelo nome.
-		productDao.findProductName("geladeira");
+		//Busca produto pelo nome.
+		//System.out.println(productDao.findProductByName("geladeira"));
+
+		//Busca produto pela categoria.
+		System.out.println(productDao.findProductByCategory("informatica"));
 
 		//Busca produto pelo id.
 		//System.out.println(productDao.findId(26L));
