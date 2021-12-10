@@ -12,8 +12,11 @@
             <property name="javax.persistence.jdbc.password" value="senha"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
 
-            <!-- Mostra as instruções sql executadas pelo hibernate -->
+            <!-- Mostra as instruções sql executadas pelo hibernate. -->
             <property name="hibernate.show_sql" value="true"/>
+
+            <!-- Formata as consultas sql. -->
+            <property name="hibernate.format_sql" value="true"/>
         </properties>
     </persistence-unit>
 </persistence>
